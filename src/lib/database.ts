@@ -1,9 +1,6 @@
 import client from "./mongodb";
 
-async function getClaim(filter: {
-  address: string,
-  surveyHash: string
-}) {
+async function getClaim(filter: object) {
   try {
     const db = client.db("db_centiva_demo");
     const claim = await db
@@ -15,12 +12,7 @@ async function getClaim(filter: {
   }
 }
 
-async function getClaims(filter: {
-  address: string,
-  surveyHash?: string,
-  amount?: number,
-  txHash?: string
-}) {
+async function getClaims(filter: object) {
   try {
     const db = client.db("db_centiva_demo");
     const claims = await db

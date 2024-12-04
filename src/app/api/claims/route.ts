@@ -21,7 +21,12 @@ export async function POST(req: NextRequest) {
     // get claims from database
     let result;
     if (surveyHash) {
-      result = await getClaims({address, surveyHash});
+      result = await getClaims({
+        "$and":[
+          {address},
+          {surveyHash}
+        ]
+      });
     } else {
       result = await getClaims({ address });
     }

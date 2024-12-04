@@ -36,10 +36,11 @@ export async function POST(req: NextRequest) {
 
     // validate account has not received reward for this survey yet
     const claim = await getClaim({
-      address: address,
-      surveyHash
+      "$and": [
+        { address: address },
+        {  surveyHash }
+      ]
     });
-    console.log(claim);
     if (claim) throw (Message.SURVEY_CLAIMED);
 
     // pay reward
