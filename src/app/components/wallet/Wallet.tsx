@@ -87,6 +87,7 @@ export function Wallet({
       address: address as string,
       publicKey: signatureCheck.pub_key.value,
       signature: signatureCheck.signature,
+      surveyHash
     });
     console.log(existingClaim);
     if (existingClaim && existingClaim.length > 0) {
